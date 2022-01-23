@@ -1,5 +1,3 @@
-pub mod foundation;
-
 #[cfg(test)]
 mod tests {
     #[test]
