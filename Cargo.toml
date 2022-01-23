@@ -1,0 +1,5 @@
+[workspace]
+members = [
+  "macos-foundation",
+  "macos-appkit",
+]
