@@ -2,6 +2,14 @@
 name = "macos-appkit"
 version = "0.0.1"
 edition = "2021"
+description = "Bindings for macOS."
+homepage = "https://github.com/komi1230/macos"
+repository = "https://github.com/komi1230/macos"
+keywords = ["macos", "cocoa"]
+license = "Apache-2.0"
+readme = "README.md"
+documentation = "https://docs.rs/macos-foundation"
+categories = ["macos"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
