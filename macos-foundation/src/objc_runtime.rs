@@ -12,5 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-pub mod fundamentals;
-pub mod objc_runtime;
+use objc::runtime::Object;
+use objc::{class, msg_send, sel, sel_impl};
+
+pub type Id = *mut Object;
+
+pub trait NSObject: Sized {
+    fn alloc(_: Self) -> Id {
+        unsafe {
+            let class = class![NSObject];
+            msg_send![class, alloc]
+        }
+    }
+}
