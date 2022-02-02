@@ -14,5 +14,5 @@ categories = ["macos"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-macos-foundation = { path = "../macos-foundation" }
+macos-foundation = { path = "../foundation" }
 objc = "0.2.7"

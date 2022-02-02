@@ -12,5 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-pub mod data;
-pub mod number;
+mod data;
+mod number;
+
+pub use data::*;
+pub use number::*;

@@ -12,15 +12,39 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use crate::Id;
-
 /// When building 32-bit applications, NSInteger is a 32-bit integer. A 64-bit application treats NSInteger as a 64-bit integer.
-pub type NSInteger = std::os::raw::c_long;
+#[cfg(target_pointer_width = "32")]
+pub type NSInteger = libc::c_int;
+#[cfg(target_pointer_width = "64")]
+pub type NSInteger = libc::c_long;
 
 /// When building 32-bit applications, NSUInteger is a 32-bit unsigned integer. A 64-bit application treats NSUInteger as a 64-bit unsigned integer
-pub type NSUInteger = std::os::raw::c_ulong;
+#[cfg(target_pointer_width = "32")]
+pub type NSUInteger = libc::c_uint;
+#[cfg(target_pointer_width = "64")]
+pub type NSUInteger = libc::c_ulong;
 
-pub const NSIntegerMax: i64 = i32::max_value() as i64;
-pub const NSIntegerMin: i64 = i64::min_value();
+pub const NSIntegerMax: NSInteger = NSInteger::max_value();
+pub const NSIntegerMin: i64 = NSInteger::min_value();
 
-pub struct NSNumber(pub Id);
+pub const NSNotFound: NSInteger = NSIntegerMax;
+
+pub type NSFloat = libc::c_float;
+
+#[repr(C)]
+pub struct NSPoint {
+    pub x: NSFloat,
+    pub y: NSFloat,
+}
+
+#[repr(C)]
+pub struct NSSize {
+    pub width: NSFloat,
+    pub height: NSFloat,
+}
+
+#[repr(C)]
+pub struct NSRect {
+    pub origin: NSPoint,
+    pub size: NSSize,
+}

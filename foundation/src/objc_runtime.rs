@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use crate::fundamental::number::NSInteger;
+use crate::fundamental::NSInteger;
 
 #[repr(C)]
 pub struct OperatingSystemVersion {

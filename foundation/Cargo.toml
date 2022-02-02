@@ -15,5 +15,6 @@ categories = ["macos"]
 
 [dependencies]
 objc = "0.2.7"
+libc = "0.2.94"
 
 [features]
