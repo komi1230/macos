@@ -12,7 +12,7 @@ fn main() -> io::Result<()> {
 
     let project_root = env::current_dir()?;
 
-    println!("cargo:rustc-link-lib=framework=Foundation");
+    println!("cargo:rustc-link-lib=framework=Cocoa");
 
     let frameworks_dir = sdk_path.join("System/Library/Frameworks");
     for framework_path in fs::read_dir(frameworks_dir)?.map(|p| p.unwrap().path()) {
@@ -21,7 +21,7 @@ fn main() -> io::Result<()> {
 
         println!("{:?}", framework_name);
 
-        if framework_name != "Foundation.framework" {
+        if framework_name != "Cocoa.framework" {
             continue;
         }
 
