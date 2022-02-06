@@ -1,0 +1,15 @@
+[package]
+name = "macos-app-builder"
+version = "0.0.1"
+edition = "2021"
+description = "Bindings for macOS."
+homepage = "https://github.com/komi1230/macos-app-builder"
+repository = "https://github.com/komi1230/macos-app-builder"
+keywords = ["macos", "cocoa"]
+license = "Apache-2.0"
+readme = "README.md"
+documentation = "https://docs.rs/macos-app-builder"
+categories = ["macos"]
+
+[dependencies]
+objc = "0.2.7"
