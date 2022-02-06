@@ -12,6 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+use objc::*;
+
+pub type Id = *mut runtime::Object;
+
 /// When building 32-bit applications, NSInteger is a 32-bit integer. A 64-bit application treats NSInteger as a 64-bit integer.
 #[cfg(target_pointer_width = "32")]
 pub type NSInteger = i32;
@@ -34,18 +38,21 @@ pub type NSFloat = f32;
 #[cfg(target_pointer_width = "64")]
 pub type NSFloat = f64;
 
+#[derive(Clone, Debug)]
 #[repr(C)]
 pub struct NSPoint {
     pub x: NSFloat,
     pub y: NSFloat,
 }
 
+#[derive(Clone, Debug)]
 #[repr(C)]
 pub struct NSSize {
     pub width: NSFloat,
     pub height: NSFloat,
 }
 
+#[derive(Clone, Debug)]
 #[repr(C)]
 pub struct NSRect {
     pub origin: NSPoint,

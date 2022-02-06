@@ -12,12 +12,30 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#[allow(non_upper_case_globals)]
-#[link(name = "Foundation", kind = "framework")]
-#[link(name = "AppKit", kind = "framework")]
-#[link(name = "MetalKit", kind = "framework")]
-extern "C" {}
+use crate::foundation::{Id, NSFloat};
 
-pub mod foundation;
-pub mod window;
-pub mod util;
+use objc::*;
+
+pub struct Color {
+    pub _object: Id,
+    pub red: NSFloat,
+    pub green: NSFloat,
+    pub blue: NSFloat,
+    pub alpha: NSFloat,
+}
+
+impl Color {
+    pub fn new(red: NSFloat, green: NSFloat, blue: NSFloat, alpha: NSFloat) -> Self {
+        let object = unsafe {
+            msg_send![class!(NSColor), colorWithRed: red green: green blue: blue alpha: alpha]
+        };
+
+        Self {
+            _object: object,
+            red,
+            green,
+            blue,
+            alpha,
+        }
+    }
+}
