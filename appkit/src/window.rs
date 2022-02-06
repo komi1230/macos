@@ -12,7 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#[link(name = "AppKit", kind = "framework")]
-extern "C" {}
+struct Window {
+    title: String,
+    rectangle: String,
+    background_color: Color,
+}
 
-pub mod window;
+enum Color {}

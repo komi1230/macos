@@ -29,7 +29,10 @@ pub const NSIntegerMin: i64 = NSInteger::min_value();
 
 pub const NSNotFound: NSInteger = NSIntegerMax;
 
+#[cfg(target_pointer_width = "32")]
 pub type NSFloat = libc::c_float;
+#[cfg(target_pointer_width = "64")]
+pub type NSFloat = libc::c_double;
 
 #[repr(C)]
 pub struct NSPoint {
